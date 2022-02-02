@@ -18,9 +18,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin',
             'username' => 'super_admin',
             'gender' => 'Male',
-            'email' => 'admin@dtlogics.com',
+            'email' => 'admin@helping.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
+            'password' => Hash::make('admin123'),
             'created_at' => now(),
             'updated_at' => now()
         ]);

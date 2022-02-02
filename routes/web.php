@@ -75,17 +75,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin:'], 
 
 
     //Settings Routes
-    Route::get('/settings/business', [SettingsController::class, 'business_index']);
-    Route::post('/update/settings/business', [SettingsController::class, 'update_business_settings'])->name('update-business-settings');
-    //SMTP Setting Routes
-    Route::get('/settings/smtp', [SettingsController::class, 'smtp_index']);
-    Route::post('/update/settings/smtp', [SettingsController::class, 'update_smtp_settings'])->name('update-smtp-settings');
-    //SMS Settings Routes
-    Route::get('/settings/sms', [SettingsController::class, 'sms_index']);
-    Route::post('/update/settings/sms', [SettingsController::class, 'update_sms_settings'])->name('update-sms-settings');
-    //Notifications Settings Routes
-    Route::get('/settings/notifications', [SettingsController::class, 'notifications_index']);
-    Route::post('/update/settings/notifications', [SettingsController::class, 'update_notifications_settings'])->name('update-notifications-settings');
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    Route::post('/update/settings', [SettingsController::class, 'update_settings'])->name('update-settings');
 });
 
 

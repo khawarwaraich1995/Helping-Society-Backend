@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "taxi-booking.test"
+            "value": "helping-society.test"
         }
     ],
     "info": {
-        "name": "DtLogics Taxi System",
-        "_postman_id": "f7d584db-73df-4fd1-a7e3-0ebf5356d419",
+        "name": "Helping Society",
+        "_postman_id": "d27e38cd-0852-41d7-8dc9-3e8380914d38",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>DtLogics Taxi System</title>
+    <title>Helping Society</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -27,7 +27,7 @@
             </style>
 
     <script>
-        var baseUrl = "http://taxi-booking.test";
+        var baseUrl = "http://helping-society.test";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -97,7 +97,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 15 2021</li>
+        <li>Last updated: February 2 2022</li>
     </ul>
 </div>
 
@@ -111,7 +111,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://taxi-booking.test</code></pre>
+<pre><code class="language-yaml">http://helping-society.test</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
@@ -134,7 +134,7 @@ Along token client details will be displayed. To call authorized endpoints you n
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://taxi-booking.test/api/v1/client/register" \
+    "http://helping-society.test/api/v1/client/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -147,7 +147,7 @@ Along token client details will be displayed. To call authorized endpoints you n
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://taxi-booking.test/api/v1/client/register"
+    "http://helping-society.test/api/v1/client/register"
 );
 
 const headers = {
@@ -171,7 +171,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://taxi-booking.test/api/v1/client/register',
+    'http://helping-society.test/api/v1/client/register',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -295,7 +295,7 @@ Along token client details will be displayed. To call authorized endpoints you n
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://taxi-booking.test/api/v1/client/login" \
+    "http://helping-society.test/api/v1/client/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -307,7 +307,7 @@ Along token client details will be displayed. To call authorized endpoints you n
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://taxi-booking.test/api/v1/client/login"
+    "http://helping-society.test/api/v1/client/login"
 );
 
 const headers = {
@@ -330,7 +330,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://taxi-booking.test/api/v1/client/login',
+    'http://helping-society.test/api/v1/client/login',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -453,7 +453,7 @@ To logout token must be required in header otherwise client will be Unauthentica
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://taxi-booking.test/api/v1/client/logout" \
+    "http://helping-society.test/api/v1/client/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --header "Authorization: Bearer $token"</code></pre></div>
@@ -461,7 +461,7 @@ To logout token must be required in header otherwise client will be Unauthentica
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://taxi-booking.test/api/v1/client/logout"
+    "http://helping-society.test/api/v1/client/logout"
 );
 
 const headers = {
@@ -479,7 +479,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://taxi-booking.test/api/v1/client/logout',
+    'http://helping-society.test/api/v1/client/logout',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',

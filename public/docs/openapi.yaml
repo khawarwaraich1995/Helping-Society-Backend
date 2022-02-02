@@ -1,11 +1,11 @@
 openapi: 3.0.3
 info:
-  title: 'DtLogics Taxi System'
+  title: 'Helping Society'
   description: ''
   version: 1.0.0
 servers:
   -
-    url: 'http://taxi-booking.test'
+    url: 'http://helping-society.test'
 paths:
   /api/v1/client/register:
     post:

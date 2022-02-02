@@ -96,40 +96,11 @@
                     </a>
                 </li>
                 <li class="nav-item {{($segment == 'settings' ? 'active': '')}}">
-                    <a class="nav-link" href="#navbar-forms" data-toggle="collapse" role="button" aria-expanded="true"
+                    <a class="nav-link" href="{{route('admin:settings')}}"
                         aria-controls="navbar-forms">
                         <i class="ni ni-single-copy-04 text-pink"></i>
                         <span class="nav-link-text">{{ __('Settings') }}</span>
                     </a>
-                    <div class="collapse {{($segment == 'settings' ? 'show': '')}}" id="navbar-forms">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item {{($segmentSecondary == 'business' ? 'active': '')}}">
-                                <a href="{{url('/admin/settings/business')}}" class="nav-link">
-                                    <i class="ni ni-shop text-blue"></i> {{ __('Business Setting') }}
-                                </a>
-                            </li>
-                            <li class="nav-item {{($segmentSecondary == 'notifications' ? 'active': '')}}">
-                                <a href="{{url('/admin/settings/notifications')}}" class="nav-link">
-                                    <i class="ni ni-bell-55 text-orange"></i> {{ __('Notifications Setting') }}
-                                </a>
-                            </li>
-                            {{-- <li class="nav-item {{($segmentSecondary == 'payment' ? 'active': '')}}">
-                                <a href="{{url('/admin/settings/payments')}}" class="nav-link">
-                                    <i class="ni ni-money-coins text-yellow"></i> {{ __('Payments Setting') }}
-                                </a>
-                            </li> --}}
-                            <li class="nav-item {{($segmentSecondary == 'smtp' ? 'active': '')}}">
-                                <a href="{{url('/admin/settings/smtp')}}" class="nav-link">
-                                    <i class="ni ni-email-83 text-red"></i> {{ __('SMTP Setting') }}
-                                </a>
-                            </li>
-                            <li class="nav-item {{($segmentSecondary == 'sms' ? 'active': '')}}">
-                                <a href="{{url('/admin/settings/sms')}}" class="nav-link">
-                                    <i class="ni ni-chat-round text-green"></i> {{ __('SMS Setting') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <li class="nav-item {{($segment == 'roles' ? 'active': '')}}">
                     <a class="nav-link" href="{{route('admin:roles')}}">
