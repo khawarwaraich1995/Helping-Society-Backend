@@ -50,7 +50,14 @@ class ComplaintController extends Controller
             'zip_code' => $request->zip_code,
             'message' => $request->message
         ];
+        if($request->hasFile('image')){
+
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('uploads/images/complaints/'), $imageName);
+            $data['image'] = $imageName;
+        }
         Complaint::create($data);
+        return response()->json(['status' => true, 'message' => "Complaint has been submitted. Check history for updates!"]);
 
     }
 
@@ -88,6 +95,14 @@ class ComplaintController extends Controller
             'zip_code' => $request->zip_code,
             'message' => $request->message
         ];
+        if($request->hasFile('image')){
+
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('uploads/images/save_food/'), $imageName);
+            $data['image'] = $imageName;
+        }
         SaveFood::create($data);
+
+        return response()->json(['status' => true, 'message' => "Request has been submitted. Check history for updates!"]);
     }
 }
