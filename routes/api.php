@@ -27,6 +27,7 @@ Route::group(['prefix' => 'v1/client', 'middleware' => ['ApiHeaderVerify']], fun
         Route::post('/profile-update', [ClientAuthController::class, 'profileUpdate']);
         Route::post('/register-complaint', [ComplaintController::class, 'store_complaint']);
         Route::post('/save-food', [ComplaintController::class, 'save_food']);
+        Route::post('/save-donation', [ComplaintController::class, 'save_donation']);
         Route::post('/store-device-token', [ClientAuthController::class, 'store_token']);
         Route::post('/logout', [ClientAuthController::class, 'logout']);
 

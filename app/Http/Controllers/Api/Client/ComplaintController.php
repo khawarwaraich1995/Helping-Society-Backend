@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Complaint;
 use App\Models\SaveFood;
+use App\Models\Donation;
 use Validator;
 
 /**
@@ -104,5 +105,41 @@ class ComplaintController extends Controller
         SaveFood::create($data);
 
         return response()->json(['status' => true, 'message' => "Request has been submitted. Check history for updates!"]);
+    }
+
+
+    function save_donation(Request $request){
+        $messages = array(
+            'type.required' => __('Type field is required.'),
+            'address.required' => __('Address field is required.'),
+            'message.required' => __('Message field is required.')
+        );
+        $validator = Validator::make($request->all(), [
+            'type' => 'required',
+            'address' => 'required',
+            'message' => 'required'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => false, 'errors' => $validator->errors()]);
+        }
+
+        $data = [
+            'user_id' => $request->user()->id,
+            'type' => $request->type,
+            'address' => $request->address,
+            'quantity' => $request->quantity,
+            'donation_amount' => $request->donation_amount,
+            'message' => $request->message
+        ];
+        if($request->hasFile('image')){
+
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('uploads/images/donation/'), $imageName);
+            $data['image'] = $imageName;
+        }
+        Donation::create($data);
+
+        return response()->json(['status' => true, 'message' => "Donation request has been submitted. Check history for updates!"]);
     }
 }
