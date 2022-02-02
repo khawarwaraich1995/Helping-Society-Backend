@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Complaint extends Model
+class SaveFood extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'issue_type',
+        'no_of_peoples',
         'address',
         'lat',
         'lng',
-        'city',
         'image',
+        'city',
         'zip_code',
         'message' 
     ];

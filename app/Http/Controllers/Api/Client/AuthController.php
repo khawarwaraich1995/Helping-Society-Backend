@@ -165,6 +165,41 @@ class AuthController extends Controller
         ];
     }
 
+    function profileUpdate(Request $request){
+
+
+        $messages = array(
+            'image.image' => __('Image field must be image file type.'),
+            'image.mimes' => __('Supported extensions for image are jpeg,png,jpg only.'),
+            'image.max' => __('Image size should be less than 2MB.')
+        );
+        $validator = Validator::make($request->all(), [
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => false, 'errors' => $validator->errors()]);
+        }
+
+        //User from token
+        $token = $request->user();
+
+        $user = Customer::find($token->id);
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        if($request->hasFile('image')){
+
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('uploads/images/user/'), $imageName);
+            $user->image = $imageName;
+        }
+        $user->save();
+
+        return response()->json(['status' => true, 'message' => 'Your profile has been updated!', 'user'=>$user]);
+
+    }
+
     function store_token(Request $request){
 
         $messages = array(

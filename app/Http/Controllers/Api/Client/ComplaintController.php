@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Complaint;
+use App\Models\SaveFood;
 use Validator;
 
 /**
@@ -51,5 +52,42 @@ class ComplaintController extends Controller
         ];
         Complaint::create($data);
 
+    }
+
+    function save_food(Request $request){
+        $messages = array(
+            'no_of_peoples.required' => __('No of Peoples field is required.'),
+            'address.required' => __('Address field is required.'),
+            'lat.required' => __('Lat field field is required.'),
+            'lng.required' => __('Lng field field is required.'),
+            'city.required' => __('City field is required.'),
+            'zip_code.required' => __('Zip Code field is required.'),
+            'message.required' => __('Message field is required.')
+        );
+        $validator = Validator::make($request->all(), [
+            'no_of_peoples' => 'required',
+            'address' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
+            'city' => 'required',
+            'zip_code' => 'required',
+            'message' => 'required'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => false, 'errors' => $validator->errors()]);
+        }
+
+        $data = [
+            'user_id' => $request->user()->id,
+            'no_of_peoples' => $request->no_of_peoples,
+            'address' => $request->address,
+            'lat' => $request->lat,
+            'lng' => $request->lng,
+            'city' => $request->city,
+            'zip_code' => $request->zip_code,
+            'message' => $request->message
+        ];
+        SaveFood::create($data);
     }
 }
