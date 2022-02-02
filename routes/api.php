@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Client\AuthController as ClientAuthController;
+use App\Http\Controllers\Api\Client\ComplaintController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,8 @@ Route::group(['prefix' => 'v1/client', 'middleware' => ['ApiHeaderVerify']], fun
 
     //Protecting Routes
     Route::group(['middleware' => ['auth:api']], function () {
-
+        Route::post('/register-complaint', [ComplaintController::class, 'store_complaint']);
+        Route::post('/store-device-token', [ClientAuthController::class, 'store_token']);
         Route::post('/logout', [ClientAuthController::class, 'logout']);
 
     });

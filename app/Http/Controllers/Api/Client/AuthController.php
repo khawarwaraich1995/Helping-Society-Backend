@@ -164,4 +164,28 @@ class AuthController extends Controller
             'message' => 'You have successfully logged out!'
         ];
     }
+
+    function store_token(Request $request){
+
+        $messages = array(
+            'token.required' => __('Token field is required.')
+        );
+        $validator = Validator::make($request->all(), [
+            'token' => 'required'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => false, 'errors' => $validator->errors()], 422);
+        }
+
+        $customer = $request->user();
+
+        $token = array();
+        $token['customer_id'] = $customer->id;
+        $token['token'] = $request->token;
+        CustomerToken::create($token);
+
+        return response()->json(['status' => true, 'message' => "Device token has been stored!"]);
+
+    }
 }
