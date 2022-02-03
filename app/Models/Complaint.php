@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Customer;
 
 class Complaint extends Model
 {
@@ -18,6 +19,12 @@ class Complaint extends Model
         'city',
         'image',
         'zip_code',
-        'message' 
+        'message'
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

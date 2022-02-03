@@ -28,22 +28,6 @@
                     <div class=" dropdown-header noti-title">
                         <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
                     </div>
-                    <a href="" class="dropdown-item">
-                        <i class="ni ni-single-02"></i>
-                        <span>{{ __('My profile') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-settings-gear-65"></i>
-                        <span>{{ __('Settings') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-calendar-grid-58"></i>
-                        <span>{{ __('Activity') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-support-16"></i>
-                        <span>{{ __('Support') }}</span>
-                    </a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('admin:logout') }}" class="dropdown-item" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -95,11 +79,9 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
-                <li class="nav-item {{($segment == 'settings' ? 'active': '')}}">
-                    <a class="nav-link" href="{{route('admin:settings')}}"
-                        aria-controls="navbar-forms">
-                        <i class="ni ni-single-copy-04 text-pink"></i>
-                        <span class="nav-link-text">{{ __('Settings') }}</span>
+                <li class="nav-item {{($segment == 'complaints' ? 'active': '')}}">
+                    <a class="nav-link" href="{{ route('admin:complaints') }}">
+                        <i class="ni ni-circle-08 text-primary"></i> {{ __('Complaints') }}
                     </a>
                 </li>
                 <li class="nav-item {{($segment == 'roles' ? 'active': '')}}">

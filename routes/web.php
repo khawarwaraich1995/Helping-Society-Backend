@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\LocalizationController;
 
 /*
@@ -30,10 +30,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['guest'], 'as' => 'admin:'],
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login', [AuthController::class, 'login_attempt'])->name('login.action');
 });
-
-//Language Controller Routes
-Route::get('lang/{locale}', [LocalizationController::class, 'index']);
-
 
 //Admin Routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin:'], function () {
@@ -75,8 +71,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin:'], 
 
 
     //Settings Routes
-    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
-    Route::post('/update/settings', [SettingsController::class, 'update_settings'])->name('update-settings');
+    Route::get('/complaints', [ComplaintController::class, 'index'])->name('complaints');
+    Route::get('/get-complaints', [ComplaintController::class, 'get_complaints'])->name('get.complaints');
+    Route::get('/shipment/detail/{tracking_no}', [ShipmentController::class, 'shipmentDetail'])->name('shipment.detail');
+    Route::post('/complaint/change-status', [ComplaintController::class, 'change_status'])->name('complaint.status');
 });
 
 

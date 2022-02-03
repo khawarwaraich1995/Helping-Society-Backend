@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Helping Society'),
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Jackiedo\Timezonelist\TimezonelistServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Ladumor\OneSignal\OneSignalServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -210,6 +212,7 @@ return [
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+        'OneSignal' => \Ladumor\OneSignal\OneSignal::class,
         'Http' => Illuminate\Support\Facades\Http::class,
         'Js' => Illuminate\Support\Js::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
